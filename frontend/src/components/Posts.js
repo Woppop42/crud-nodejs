@@ -7,7 +7,7 @@ function Posts() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:8000/api/posts/getPosts")
-        .then(response => setPosts(response.data))
+        .then(response => {console.log(response.data), setPosts(response.data)})
         .catch(error => console.error(error));
     }, []);
 
@@ -16,7 +16,7 @@ function Posts() {
             <h2>Liste de tous les postes</h2>
             <ul>
             {posts.map(post => (
-              <li key={post.id}>{post.message}</li>
+              <li key={post._id}>{post.message}</li>
             ))}
             </ul>
         </div>

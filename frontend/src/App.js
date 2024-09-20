@@ -11,6 +11,7 @@ function App() {
       <div className="App">
         <nav>
           <Link to="/users">Utilisateurs</Link>
+          <Link to="/posts">Posts</Link>
         </nav>
         <Routes>
           {/* Route pour afficher les utilisateurs */}

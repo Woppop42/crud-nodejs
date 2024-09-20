@@ -3,7 +3,7 @@ const { setPosts, getPosts, editPost, deletePost, likePost, dislikePost } = requ
 const router = express.Router();
 
 // Création d'une route. Prend en paramètre une requête ainsi qu'une réponse. Si réponse il y a, son contenu est renvoyé en json. Ici, le get précise le protocole (get / post / delete etc)
-router.get("/", getPosts);
+router.get("/getPosts", getPosts);
 router.post("/post", setPosts);
 router.put("/edit/:id", editPost);
 router.delete("/delete/:id", deletePost);

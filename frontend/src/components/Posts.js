@@ -7,7 +7,7 @@ function Posts() {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:8000/api/posts/getPosts")
-        .then(response => {console.log(response.data), setPosts(response.data)})
+        .then(response => {console.log(response.data); setPosts(response.data)})
         .catch(error => console.error(error));
     }, []);
 

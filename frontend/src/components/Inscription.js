@@ -1,13 +1,17 @@
 import React, { useState} from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Inscription() {
-    // Hook qui gère définit et gère le comortement du composant
+    // Hook qui gère définit et gère le comportement du composant
     const [formData, setFormData] = useState({
         username: '',
         email: '',
         password: ''
     });
+
+    // Hook pour la navigation
+    const navigate = useNavigate();
 
     // Gestion des chagements dans les champs du formulaires
     const handleChange = (e) => {
@@ -28,7 +32,9 @@ function Inscription() {
         // Appel de l'API pour enregistrer l'utilisateur
         axios.post('http://localhost:8000/api/users/createUser', formData)
         .then(response => {
-            console.log('Utilisateur bien enregistré: ', response.data)
+            console.log('Utilisateur bien enregistré: ', response.data);
+            // Redirection vers la page d'accueil grâce au hook useNavigate()
+            navigate('/');
         })
         .catch(error => {
             console.error('Erreur lors de l\'enregistrement.', error)
